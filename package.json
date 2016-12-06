@@ -1,0 +1,20 @@
+{
+  "name": "weather_radio",
+  "version": "1.0.0",
+  "description": "An app using spotify and weather data to generate playlists",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server/app.js",
+    "dev": "nodemon server/app.js"
+  },
+  "author": "brentReno",
+  "license": "ISC",
+  "dependencies": {
+    "cookie-parser": "^1.4.3",
+    "dotenv": "^2.0.0",
+    "express": "^4.14.0",
+    "querystring": "^0.2.0",
+    "request": "^2.79.0"
+  }
+}
