@@ -1,4 +1,5 @@
 var weather_data = [];
+var artist_data =[];
 
 
 (function() {
@@ -82,7 +83,23 @@ var weather_data = [];
         url: "https://api.spotify.com/v1/me/top/artists",
         dataType: "json",
         headers: {"Authorization": "Bearer " + access_token},
-        success: function(artists){console.log("back from server with: ", artists); },
+        success: function(artists){
+          console.log("back from server with: ", artists);
+          for (var i = 0; i < artists.items.length; i++) {
+            //package top artist data in to an object
+            var user_artist ={
+              //artist's name
+              name: artists.items[i].name,
+              // artist's genres
+              genres: artists.items[i].genres,
+              // artist's uri
+              artist_uri: artists.items[i].uri
+            };
+            //push each artis to array
+            artist_data.push(user_artist);
+          }
+          console.log(artist_data);
+      },
          error: function(err) {
           console.log("Error retrieving spotify API ", err);
         }
