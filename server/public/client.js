@@ -1,3 +1,6 @@
+var weather_data = [];
+
+
 (function() {
 
   /**
@@ -91,7 +94,21 @@
         type: "GET",
         url: "http://api.wunderground.com/api/b67101dd22166f78/conditions/q/MN/Minneapolis.json",
         dataType: "json",
-        success: function(weather){console.log("back with", weather);}
+        success: function(weather){
+          console.log("back with", weather);
+          // get the current temp
+          var current_temp = weather.current_observation.feelslike_f;
+          //get the current weater conditions
+          var current_conditions = weather.current_observation.weather;
+          // get the current wind speed
+          var current_wind= weather.current_observation.wind_mph;
+          // push current data into weather_data
+          weather_data.push(current_temp);
+          weather_data.push(current_conditions);
+          weather_data.push(current_wind);
+          console.log(current_temp, current_conditions, current_wind);
+          console.log(weather_data);
+        }
       });
     });
 
