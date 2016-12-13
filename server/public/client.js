@@ -162,11 +162,30 @@ var world_genres= ["bossanova", "brazil", "dancehall", "latin", "reggae", "regga
         for (var h = 0; h < artist_data.length; h++){
           // console.log(artist_data[h].genres);
           for(var i = 0; i < artist_data[h].genres.length; i++){
+            //use electronic genres because it's the longest genre array
             for (var j =0; j < electronic_genres.length; j++){
               // console.log(electronic_genres[j]);
               // console.log(artist_data[h].genres[j]);
               if (electronic_genres[j] == artist_data[h].genres[i] ) {
                 console.log("it's a match: " + electronic_genres[j]+ " & " + artist_data[h].genres[i] + " Artist: " + artist_data[h].name );
+              }
+              if( chill_genres[j]== artist_data[h].genres[i]){
+                console.log("it's a match: " + chill_genres[j]+ " & " + artist_data[h].genres[i] + " Artist: " + artist_data[h].name );
+              }
+              if( rock_genres[j]== artist_data[h].genres[i]){
+                console.log("it's a match: " + rock_genres[j]+ " & " + artist_data[h].genres[i] + " Artist: " + artist_data[h].name );
+              }
+              if( metal_genres[j]== artist_data[h].genres[i]){
+                console.log("it's a match: " + metal_genres[j]+ " & " + artist_data[h].genres[i] + " Artist: " + artist_data[h].name );
+              }
+              if( country_folk_genres[j]== artist_data[h].genres[i]){
+                console.log("it's a match: " + country_folk_genres[j]+ " & " + artist_data[h].genres[i] + " Artist: " + artist_data[h].name );
+              }
+              if( hiphop_rnb_genres[j]== artist_data[h].genres[i]){
+                console.log("it's a match: " + hiphop_rnb_genres[j]+ " & " + artist_data[h].genres[i] + " Artist: " + artist_data[h].name );
+              }
+              if( world_genres[j]== artist_data[h].genres[i]){
+                console.log("it's a match: " + world_genres[j]+ " & " + artist_data[h].genres[i] + " Artist: " + artist_data[h].name );
               }
             }
           }
