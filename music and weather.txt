@@ -1,0 +1,207 @@
+//////Music Groups
+
+Chill
+========
+0:
+"acoustic"
+4:
+"ambient"
+16:
+"chill"
+108:
+"singer-songwriter"
+111:
+"songwriter"
+
+Rock
+=======
+2:
+"alt-rock"
+3:
+"alternative"
+34:
+"emo"
+39:
+"garage"
+45:
+"grunge"
+58:
+"indie"
+59:
+"indie-pop"
+91:
+"psych-rock"
+92:
+"punk"
+93:
+"punk-rock"
+99:
+"rock"
+100:
+"rock-n-roll"
+101:
+"rockabilly"
+
+Metal
+========
+6:
+"black-metal"
+23:
+"death-metal"
+42:
+"goth"
+43:
+"grindcore"
+48:
+"hard-rock"
+49:
+"hardcore"
+51:
+"heavy-metal"
+73:
+"metal"
+74:
+"metal-misc"
+75:
+"metalcore"
+
+
+Country & Folk
+========
+7:
+"bluegrass"
+20:
+"country"
+35:
+"folk"
+54:
+"honky-tonk"
+108:
+"singer-songwriter"
+111:
+"songwriter"
+
+Hip-hop and R&B
+========
+11:
+"breakbeat"
+52:
+"hip-hop"
+38:
+"funk"
+44:
+"groove"
+94:
+"r-n-b"
+112:
+"soul"
+
+Electronic
+========
+14:
+"chicago-house"
+18:
+"club"
+21:
+"dance"
+24:
+"deep-house"
+25:
+"detroit-techno"
+28:
+"drum-and-bass"
+29:
+"dub"
+30:
+"dubstep"
+31:
+"edm"
+32:
+"electro"
+33:
+"electronic"
+55:
+"house"
+88:
+"post-dubstep"
+90:
+"progressive-house"
+120:
+"techno"
+121:
+"trance"
+122:
+"trip-hop"
+
+World
+========
+9:
+"bossanova"
+10:
+"brazil"
+22:
+"dancehall"
+69:
+"latin"
+96:
+"reggae"
+97:
+"reggaeton"
+104:
+"salsa"
+105:
+"samba"
+125:
+"world-music"
+1:
+"afrobeat"
+
+
+////Weather Groups
+
+Group 1 - low
+========
+
+[Light/Heavy] Hail
+[Light/Heavy] Ice Crystals
+[Light/Heavy] Ice Pellets
+Funnel Cloud
+[Light/Heavy] Thunderstorms and Rain
+[Light/Heavy] Thunderstorms and Snow
+[Light/Heavy] Thunderstorms and Ice Pellets
+[Light/Heavy] Thunderstorms with Hail
+[Light/Heavy] Thunderstorms with Small Hail
+[Light/Heavy] Snow Blowing Snow Mist
+[Light/Heavy] Ice Pellet Showers
+[Light/Heavy] Hail Showers
+[Light/Heavy] Small Hail Showers
+[Light/Heavy] Thunderstorm
+[Light/Heavy] Freezing Drizzle
+[Light/Heavy] Freezing Rain
+[Light/Heavy] Freezing Fog
+[Light/Heavy] Blowing Snow
+Small Hail
+
+
+Group 2 - mid
+=========
+[Light/Heavy] Mist
+[Light/Heavy] Fog
+[Light/Heavy] Fog Patches
+[Light/Heavy] Rain
+[Light/Heavy] Drizzle
+Patches of Fog
+Shallow Fog
+Partial Fog
+Overcast
+[Light/Heavy] Rain Mist
+[Light/Heavy] Rain Showers
+[Light/Heavy] Snow Showers
+
+Group 3-high
+=========
+[Light/Heavy] Snow
+Clear
+Partly Cloudy
+Mostly Cloudy
+Scattered Clouds

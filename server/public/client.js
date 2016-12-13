@@ -76,6 +76,20 @@ var artist_data =[];
     }, false);
   }
 
+    ///////////////// Route used to see available genres, wil be deleted later \\\\\\\\\\\\\\\\\\\\\\\
+
+    document.getElementById('obtain-genres').addEventListener('click', function(){
+      $.ajax({
+        type: "GET",
+        url: 'https://api.spotify.com/v1/recommendations/available-genre-seeds',
+        dataType: "json",
+        headers: {"Authorization": "Bearer " + access_token},
+        success: function(genres){
+          console.log('back from spotify with: ', genres);
+        }
+      });
+    });
+
     document.getElementById('obtain-artists').addEventListener('click', function() {
       console.log("access", access_token);
       $.ajax({
@@ -84,7 +98,7 @@ var artist_data =[];
         dataType: "json",
         headers: {"Authorization": "Bearer " + access_token},
         success: function(artists){
-          console.log("back from server with: ", artists);
+          console.log("back from spotify with: ", artists);
           for (var i = 0; i < artists.items.length; i++) {
             //package top artist data in to an object
             var user_artist ={
