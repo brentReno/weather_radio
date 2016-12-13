@@ -110,8 +110,6 @@ Electronic
 "detroit-techno"
 28:
 "drum-and-bass"
-29:
-"dub"
 30:
 "dubstep"
 31:

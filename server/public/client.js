@@ -1,5 +1,19 @@
+////////////Globals\\\\\\\\\\\\\\\\
+
+//response arrays
 var weather_data = [];
 var artist_data =[];
+
+// music genres
+var chill_genres= ["acoustic","ambient","chill","singer-songwriter","songwriter"];
+var rock_genres= ["alt-rock", "alternative", "emo", "garage", "grunge", "indie", "indie-pop", "psych-rock", "punk", "punk-rock", "rock", "rock-n-roll", "rockabilly"];
+var metal_genres= ["black-metal","death-metal","goth", "grindcore", "hard-rock","hardcore", "heavy-metal", "metal", "metal-misc", "metalcore"];
+var country_folk_genres= ["bluegrass","country", "folk", "honky-tonk", "singer-songwriter", "songwriter"];
+var hiphop_rnb_genres= ["breakbeat", "hip-hop", "funk", "groove", "r-n-b", "soul"];
+var electronic_genres= ["chicago-house", "club", "dance", "deep-house", "detroit-techno", "drum-and-bass", "dubstep", "edm", "electro", "electronic", "house", "post-dubstep", "progressive-house", "techno" , "trance", "trip-hop"];
+var world_genres= ["bossanova", "brazil", "dancehall", "latin", "reggae", "reggaeton", "salsa", "samba", "world-music", "afrobeat" ];
+//weather groups
+
 
 
 (function() {
@@ -113,6 +127,7 @@ var artist_data =[];
             artist_data.push(user_artist);
           }
           console.log(artist_data);
+          findGenres();
       },
          error: function(err) {
           console.log("Error retrieving spotify API ", err);
@@ -141,7 +156,20 @@ var artist_data =[];
           console.log(weather_data);
         }
       });
-    });
+    }); // end weather click
 
-
+    var findGenres = function(){
+        for (var h = 0; h < artist_data.length; h++){
+          // console.log(artist_data[h].genres);
+          for(var i = 0; i < artist_data[h].genres.length; i++){
+            for (var j =0; j < electronic_genres.length; j++){
+              // console.log(electronic_genres[j]);
+              // console.log(artist_data[h].genres[j]);
+              if (electronic_genres[j] == artist_data[h].genres[i] ) {
+                console.log("it's a match: " + electronic_genres[j]+ " & " + artist_data[h].genres[i] + " Artist: " + artist_data[h].name );
+              }
+            }
+          }
+        }
+      };
 })();
