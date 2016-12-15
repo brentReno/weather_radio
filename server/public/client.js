@@ -1,7 +1,7 @@
 ////////////Globals\\\\\\\\\\\\\\\\
 
 //response arrays
-var weather_data = [];
+var weather_data = {};
 var artist_data =[];
 
 // music genres
@@ -149,11 +149,12 @@ var world_genres= ["bossanova", "brazil", "dancehall", "latin", "reggae", "regga
           // get the current wind speed
           var current_wind= weather.current_observation.wind_mph;
           // push current data into weather_data
-          weather_data.push(current_temp);
-          weather_data.push(current_conditions);
-          weather_data.push(current_wind);
+          weather_data.current_temp = current_temp;
+          weather_data.current_conditions= current_conditions;
+          weather_data.current_wind= current_wind;
           console.log(current_temp, current_conditions, current_wind);
           console.log(weather_data);
+          tempToEnergy();
         }
       });
     }); // end weather click
@@ -190,5 +191,29 @@ var world_genres= ["bossanova", "brazil", "dancehall", "latin", "reggae", "regga
             }
           }
         }
+      };
+
+      var tempToEnergy = function(){
+        var track_energy;
+        var current_temp = weather_data.current_temp;
+        if (current_temp > -50 && current_temp <= 0){
+          track_energy = 0;
+        }
+        else if ((current_temp > 0 && current_temp <= 10)||(current_temp > 50 && current_temp <= 60)) {
+          track_energy = 0.2;
+        }
+        else if ((current_temp > 10 && current_temp<=20) || (current_temp > 60 && current_temp <= 70)) {
+          track_energy = 0.4;
+        }
+        else if ((current_temp > 20 && current_temp<=30) || (current_temp > 70 && current_temp <= 80)) {
+          track_energy = 0.6;
+        }
+        else if ((current_temp> 30 && current_temp <= 40) || (current_temp > 80 && current_temp <= 90)) {
+          track_energy = 0.8;
+        }
+        else if ((current_temp > 40 && current_temp <= 50) || (current_temp > 90 && current_temp <= 100)) {
+          track_energy = 1;
+        }
+        console.log(track_energy);
       };
 })();
