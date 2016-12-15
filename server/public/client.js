@@ -128,6 +128,7 @@ var world_genres= ["bossanova", "brazil", "dancehall", "latin", "reggae", "regga
           }
           console.log(artist_data);
           findGenres();
+          createPlaylist();
       },
          error: function(err) {
           console.log("Error retrieving spotify API ", err);
@@ -246,4 +247,20 @@ var world_genres= ["bossanova", "brazil", "dancehall", "latin", "reggae", "regga
         console.log(track_dance);
         return track_dance;
       };//end windToDance
+
+      ////// Dummy data in the create playlist URL \\\\\\\\\\\\
+      var createPlaylist = function(){
+        $.ajax({
+          type: "GET",
+          url: "https://api.spotify.com/v1/recommendations/?seed_artists=5oOhM2DFWab8XhSdQiITry",
+          dataType: "json",
+          headers: {"Authorization": "Bearer " + access_token},
+          success: function(playlist){
+            console.log(playlist);
+          },
+          error: function(error){
+            console.log("err: ", error );
+          }
+        });
+      };
 })();
