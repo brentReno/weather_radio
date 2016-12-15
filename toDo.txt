@@ -1,0 +1,8 @@
+As of 12-15
+
+- strip spotify:artist: off of the artist uri strings x
+- write function for push artist and push genre
+- match current_weather to valence
+- create url for createPalylist function x
+- wrap it into a single function
+- clean up code

@@ -165,6 +165,7 @@ var seed_genres = [];
     }); // end weather click
 
     var findGenres = function(){
+      var artistSeedId;
         for (var h = 0; h < artist_data.length; h++){
           // console.log(artist_data[h].genres);
           for(var i = 0; i < artist_data[h].genres.length; i++){
@@ -174,50 +175,57 @@ var seed_genres = [];
               // console.log(artist_data[h].genres[j]);
               if (electronic_genres[j] == artist_data[h].genres[i] ) {
                 console.log("it's a match: " + electronic_genres[j]+ " & " + artist_data[h].genres[i] + " Artist: " + artist_data[h].name );
+                artistSeedId = artist_data[h].artist_uri.substring(15);
                 //push artist uri to seed_artists array
-                seed_artists.push(artist_data[h].artist_uri);
+                seed_artists.push(artistSeedId );
                 //push genre to seed_genres array
                 seed_genres.push(artist_data[h].genres[i]);
               }
               if( chill_genres[j]== artist_data[h].genres[i]){
                 console.log("it's a match: " + chill_genres[j]+ " & " + artist_data[h].genres[i] + " Artist: " + artist_data[h].name );
+                artistSeedId = artist_data[h].artist_uri.substring(15);
                 //push artist uri to seed_artists array
-                seed_artists.push( artist_data[h].artist_uri);
+                seed_artists.push(artistSeedId );
                 //push genre to seed_genres array
                 seed_genres.push(artist_data[h].genres[i]);
               }
               if( rock_genres[j]== artist_data[h].genres[i]){
                 console.log("it's a match: " + rock_genres[j]+ " & " + artist_data[h].genres[i] + " Artist: " + artist_data[h].name );
+                artistSeedId = artist_data[h].artist_uri.substring(15);
                 //push artist uri to seed_artists array
-                seed_artists.push( artist_data[h].artist_uri);
+                seed_artists.push(artistSeedId );
                 //push genre to seed_genres array
                 seed_genres.push(artist_data[h].genres[i]);
               }
               if( metal_genres[j]== artist_data[h].genres[i]){
                 console.log("it's a match: " + metal_genres[j]+ " & " + artist_data[h].genres[i] + " Artist: " + artist_data[h].name );
+                 artistSeedId = artist_data[h].artist_uri.substring(15);
                 //push artist uri to seed_artists array
-                seed_artists.push( artist_data[h].artist_uri);
+                seed_artists.push(artistSeedId );
                 //push genre to seed_genres array
                 seed_genres.push(artist_data[h].genres[i]);
               }
               if( country_folk_genres[j]== artist_data[h].genres[i]){
                 console.log("it's a match: " + country_folk_genres[j]+ " & " + artist_data[h].genres[i] + " Artist: " + artist_data[h].name );
+                artistSeedId = artist_data[h].artist_uri.substring(15);
                 //push artist uri to seed_artists array
-                seed_artists.push( artist_data[h].artist_uri);
+                seed_artists.push(artistSeedId );
                 //push genre to seed_genres array
                 seed_genres.push(artist_data[h].genres[i]);
               }
               if( hiphop_rnb_genres[j]== artist_data[h].genres[i]){
                 console.log("it's a match: " + hiphop_rnb_genres[j]+ " & " + artist_data[h].genres[i] + " Artist: " + artist_data[h].name );
+                artistSeedId = artist_data[h].artist_uri.substring(15);
                 //push artist uri to seed_artists array
-                seed_artists.push( artist_data[h].artist_uri);
+                seed_artists.push(artistSeedId );
                 //push genre to seed_genres array
                 seed_genres.push(artist_data[h].genres[i]);
               }
               if( world_genres[j]== artist_data[h].genres[i]){
                 console.log("it's a match: " + world_genres[j]+ " & " + artist_data[h].genres[i] + " Artist: " + artist_data[h].name );
+                artistSeedId = artist_data[h].artist_uri.substring(15);
                 //push artist uri to seed_artists array
-                seed_artists.push( artist_data[h].artist_uri);
+                seed_artists.push(artistSeedId );
                 //push genre to seed_genres array
                 seed_genres.push(artist_data[h].genres[i]);
               }
@@ -284,9 +292,20 @@ var seed_genres = [];
 
       ////// Dummy data in the create playlist URL \\\\\\\\\\\\
       var createPlaylist = function(){
+        //create search url var
+        var searchURL = "https://api.spotify.com/v1/recommendations/?seed_artists=";
+        //add seed artists to search URL
+        for (var i = 0; i < 5; i++) {
+          searchURL += seed_artists[i];
+          if (i < 4){
+              searchURL += ",";
+          }
+
+        }
+        console.log(searchURL);
         $.ajax({
           type: "GET",
-          url: "https://api.spotify.com/v1/recommendations/?seed_artists=5oOhM2DFWab8XhSdQiITry",
+          url: searchURL,
           dataType: "json",
           headers: {"Authorization": "Bearer " + access_token},
           success: function(playlist){
