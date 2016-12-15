@@ -1,6 +1,6 @@
 ////////////Globals\\\\\\\\\\\\\\\\
 
-//response arrays
+//response containers
 var weather_data = {};
 var artist_data =[];
 
@@ -15,7 +15,10 @@ var world_genres= ["bossanova", "brazil", "dancehall", "latin", "reggae", "regga
 //weather groups
 
 
+// playlist seed data
 
+var seed_artists=[];
+var seed_genres = [];
 (function() {
 
   /**
@@ -171,28 +174,59 @@ var world_genres= ["bossanova", "brazil", "dancehall", "latin", "reggae", "regga
               // console.log(artist_data[h].genres[j]);
               if (electronic_genres[j] == artist_data[h].genres[i] ) {
                 console.log("it's a match: " + electronic_genres[j]+ " & " + artist_data[h].genres[i] + " Artist: " + artist_data[h].name );
+                //push artist uri to seed_artists array
+                seed_artists.push(artist_data[h].artist_uri);
+                //push genre to seed_genres array
+                seed_genres.push(artist_data[h].genres[i]);
               }
               if( chill_genres[j]== artist_data[h].genres[i]){
                 console.log("it's a match: " + chill_genres[j]+ " & " + artist_data[h].genres[i] + " Artist: " + artist_data[h].name );
+                //push artist uri to seed_artists array
+                seed_artists.push( artist_data[h].artist_uri);
+                //push genre to seed_genres array
+                seed_genres.push(artist_data[h].genres[i]);
               }
               if( rock_genres[j]== artist_data[h].genres[i]){
                 console.log("it's a match: " + rock_genres[j]+ " & " + artist_data[h].genres[i] + " Artist: " + artist_data[h].name );
+                //push artist uri to seed_artists array
+                seed_artists.push( artist_data[h].artist_uri);
+                //push genre to seed_genres array
+                seed_genres.push(artist_data[h].genres[i]);
               }
               if( metal_genres[j]== artist_data[h].genres[i]){
                 console.log("it's a match: " + metal_genres[j]+ " & " + artist_data[h].genres[i] + " Artist: " + artist_data[h].name );
+                //push artist uri to seed_artists array
+                seed_artists.push( artist_data[h].artist_uri);
+                //push genre to seed_genres array
+                seed_genres.push(artist_data[h].genres[i]);
               }
               if( country_folk_genres[j]== artist_data[h].genres[i]){
                 console.log("it's a match: " + country_folk_genres[j]+ " & " + artist_data[h].genres[i] + " Artist: " + artist_data[h].name );
+                //push artist uri to seed_artists array
+                seed_artists.push( artist_data[h].artist_uri);
+                //push genre to seed_genres array
+                seed_genres.push(artist_data[h].genres[i]);
               }
               if( hiphop_rnb_genres[j]== artist_data[h].genres[i]){
                 console.log("it's a match: " + hiphop_rnb_genres[j]+ " & " + artist_data[h].genres[i] + " Artist: " + artist_data[h].name );
+                //push artist uri to seed_artists array
+                seed_artists.push( artist_data[h].artist_uri);
+                //push genre to seed_genres array
+                seed_genres.push(artist_data[h].genres[i]);
               }
               if( world_genres[j]== artist_data[h].genres[i]){
                 console.log("it's a match: " + world_genres[j]+ " & " + artist_data[h].genres[i] + " Artist: " + artist_data[h].name );
+                //push artist uri to seed_artists array
+                seed_artists.push( artist_data[h].artist_uri);
+                //push genre to seed_genres array
+                seed_genres.push(artist_data[h].genres[i]);
               }
             }
           }
         }
+        console.log(seed_artists, seed_genres);
+        jQuery.unique(seed_genres);
+        console.log(seed_genres);
       };
 
       var tempToEnergy = function(){
