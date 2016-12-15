@@ -155,6 +155,7 @@ var world_genres= ["bossanova", "brazil", "dancehall", "latin", "reggae", "regga
           console.log(current_temp, current_conditions, current_wind);
           console.log(weather_data);
           tempToEnergy();
+          windToDance();
         }
       });
     }); // end weather click
@@ -211,9 +212,38 @@ var world_genres= ["bossanova", "brazil", "dancehall", "latin", "reggae", "regga
         else if ((current_temp> 30 && current_temp <= 40) || (current_temp > 80 && current_temp <= 90)) {
           track_energy = 0.8;
         }
-        else if ((current_temp > 40 && current_temp <= 50) || (current_temp > 90 && current_temp <= 100)) {
+        else if ((current_temp > 40 && current_temp <= 50) || (current_temp > 90 && current_temp <= 120)) {
           track_energy = 1;
         }
         console.log(track_energy);
-      };
+        return track_energy;
+      }; //end tempToEnergy
+
+      var windToDance = function (){
+        var track_dance;
+        var wind_speed = weather_data.current_wind;
+
+        if(wind_speed >= 0 && wind_speed<=5){
+          track_dance = 0;
+        }
+        else if (wind_speed >5 && wind_speed <= 10) {
+          track_dance = 0.2;
+        }
+        else if (wind_speed > 10 &&  wind_speed <= 15) {
+          track_dance = 0.4;
+        }
+
+        else if (wind_speed > 15 && wind_speed <= 20) {
+          track_dance = 0.6;
+        }
+        else if (wind_speed > 20 && wind_speed <= 30){
+          track_dance = 0.8;
+        }
+
+        else if (wind_speed > 30) {
+          track_dance = 1.0;
+        }
+        console.log(track_dance);
+        return track_dance;
+      };//end windToDance
 })();
