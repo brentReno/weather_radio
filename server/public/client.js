@@ -175,59 +175,31 @@ var seed_genres = [];
               // console.log(artist_data[h].genres[j]);
               if (electronic_genres[j] == artist_data[h].genres[i] ) {
                 console.log("it's a match: " + electronic_genres[j]+ " & " + artist_data[h].genres[i] + " Artist: " + artist_data[h].name );
-                artistSeedId = artist_data[h].artist_uri.substring(15);
-                //push artist uri to seed_artists array
-                seed_artists.push(artistSeedId );
-                //push genre to seed_genres array
-                seed_genres.push(artist_data[h].genres[i]);
+                createSeedData(h, i);
               }
               if( chill_genres[j]== artist_data[h].genres[i]){
                 console.log("it's a match: " + chill_genres[j]+ " & " + artist_data[h].genres[i] + " Artist: " + artist_data[h].name );
-                artistSeedId = artist_data[h].artist_uri.substring(15);
-                //push artist uri to seed_artists array
-                seed_artists.push(artistSeedId );
-                //push genre to seed_genres array
-                seed_genres.push(artist_data[h].genres[i]);
+                createSeedData(h, i);
               }
               if( rock_genres[j]== artist_data[h].genres[i]){
                 console.log("it's a match: " + rock_genres[j]+ " & " + artist_data[h].genres[i] + " Artist: " + artist_data[h].name );
-                artistSeedId = artist_data[h].artist_uri.substring(15);
-                //push artist uri to seed_artists array
-                seed_artists.push(artistSeedId );
-                //push genre to seed_genres array
-                seed_genres.push(artist_data[h].genres[i]);
+                createSeedData(h, i);
               }
               if( metal_genres[j]== artist_data[h].genres[i]){
                 console.log("it's a match: " + metal_genres[j]+ " & " + artist_data[h].genres[i] + " Artist: " + artist_data[h].name );
-                 artistSeedId = artist_data[h].artist_uri.substring(15);
-                //push artist uri to seed_artists array
-                seed_artists.push(artistSeedId );
-                //push genre to seed_genres array
-                seed_genres.push(artist_data[h].genres[i]);
+                createSeedData(h, i);
               }
               if( country_folk_genres[j]== artist_data[h].genres[i]){
                 console.log("it's a match: " + country_folk_genres[j]+ " & " + artist_data[h].genres[i] + " Artist: " + artist_data[h].name );
-                artistSeedId = artist_data[h].artist_uri.substring(15);
-                //push artist uri to seed_artists array
-                seed_artists.push(artistSeedId );
-                //push genre to seed_genres array
-                seed_genres.push(artist_data[h].genres[i]);
+                createSeedData(h, i);
               }
               if( hiphop_rnb_genres[j]== artist_data[h].genres[i]){
                 console.log("it's a match: " + hiphop_rnb_genres[j]+ " & " + artist_data[h].genres[i] + " Artist: " + artist_data[h].name );
-                artistSeedId = artist_data[h].artist_uri.substring(15);
-                //push artist uri to seed_artists array
-                seed_artists.push(artistSeedId );
-                //push genre to seed_genres array
-                seed_genres.push(artist_data[h].genres[i]);
+                createSeedData(h, i);
               }
               if( world_genres[j]== artist_data[h].genres[i]){
                 console.log("it's a match: " + world_genres[j]+ " & " + artist_data[h].genres[i] + " Artist: " + artist_data[h].name );
-                artistSeedId = artist_data[h].artist_uri.substring(15);
-                //push artist uri to seed_artists array
-                seed_artists.push(artistSeedId );
-                //push genre to seed_genres array
-                seed_genres.push(artist_data[h].genres[i]);
+                createSeedData(h, i);
               }
             }
           }
@@ -290,7 +262,13 @@ var seed_genres = [];
         return track_dance;
       };//end windToDance
 
-      ////// Dummy data in the create playlist URL \\\\\\\\\\\\
+      var createSeedData = function (h, i){
+        artistSeedId = artist_data[h].artist_uri.substring(15);
+        //push artist uri to seed_artists array
+        seed_artists.push(artistSeedId );
+        //push genre to seed_genres array
+        seed_genres.push(artist_data[h].genres[i]);
+      };
       var createPlaylist = function(){
         //create search url var
         var searchURL = "https://api.spotify.com/v1/recommendations/?seed_artists=";
