@@ -21,11 +21,11 @@ var observableWeather= [{name:"Funnel Cloud",valence: 0.01}, {name:"Heavy Thunde
 {name: "Small Hail", valence: 0.32},{name: "Light Freezing Drizzle", valence: 0.33},{name: "Light Freezing Fog", valence: 0.34},{name: "Light Blowing Snow", valence: 0.35},{name: "Heavy Rain", valence: 0.375},{name: "Heavy Rain Showers", valence: 0.39},
 {name: "Heavy Rain Mist", valence: 0.405},{name: "Heavy Mist", valence: 0.42}, {name: "Heavy Fog", valence: 0.435},{name: "Heavy Fog Patches", valence: 0.45},{name: "Heavy Drizzle", valence: 0.465},{name: "Light Rain", valence: 0.48},
 {name: "Light Drizzle", valence: 0.495},{name: "Heavy Snow", valence: 0.51},{name: "Heavy Snow Showers", valence: 0.525},{name: "Light Rain Mist", valence: 0.54},{name: "Light Rain Showers", valence: 0.555},{name: "Light Snow Showers", valence: 0.57},
-{name: "Light Fog", valence: 0.585},{name: "Shallow Fog", valence: 0.60},{name: "Shallow Fog", valence: 0.60},{name: "Patches of Fog", valence: 0.63},{name: "Light Fog Patches", valence: 0.645},{name: "Light Mist", valence: 0.66},
-{ name:" Overcast", valence: 0.67},{ name:" Light Snow", valence: 0.73},{ name:" Mostly Cloudy", valence: 0.79},{ name:" Partly Cloudy", valence: 0.85},{ name:" Scattered Clouds", valence: 0.91},{ name:" Clear", valence: 0.99}
+{name: "Light Fog", valence: 0.585},{name: "Shallow Fog", valence: 0.60},{name: "Patches of Fog", valence: 0.63},{name: "Light Fog Patches", valence: 0.645},{name: "Light Mist", valence: 0.66},
+{ name:"Overcast", valence: 0.67},{ name:"Light Snow", valence: 0.73},{ name:"Mostly Cloudy", valence: 0.79},{ name:"Partly Cloudy", valence: 0.85},{ name:"Scattered Clouds", valence: 0.91},{ name:"Clear", valence: 0.99}
 ];
 // playlist seed data
-
+var seed_valence;
 var seed_artists=[];
 var seed_genres = [];
 var track_dance;
@@ -171,6 +171,7 @@ var track_energy;
           console.log(weather_data);
           tempToEnergy();
           windToDance();
+          observationToValence();
         }
       });
     }); // end weather click
@@ -221,7 +222,14 @@ var track_energy;
       };
 
       var observationToValence = function(){
+        for (var k = 0; k < observableWeather.length; k++) {
+          if(observableWeather[k].name == weather_data.current_conditions){
+            console.log("in the if");
+            seed_valence = observableWeather[k].valence;
+            console.log(seed_valence);
 
+          }
+        }
       };
 
       var tempToEnergy = function(){
@@ -309,6 +317,9 @@ var track_energy;
         searchURL += track_energy;
         searchURL += "&target_danceability=";
         searchURL += track_dance;
+        searchURL +="&target_valence=";
+        searchURL += seed_valence;
+        searchURL += "&limit=50";
         console.log(searchURL);
         $.ajax({
           type: "GET",
