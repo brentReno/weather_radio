@@ -13,8 +13,17 @@ var hiphop_rnb_genres= ["breakbeat", "hip-hop", "funk", "groove", "r-n-b", "soul
 var electronic_genres= ["chicago-house", "club", "dance", "deep-house", "detroit-techno", "drum-and-bass", "dubstep", "edm", "electro", "electronic", "house", "post-dubstep", "progressive-house", "techno" , "trance", "trip-hop"];
 var world_genres= ["bossanova", "brazil", "dancehall", "latin", "reggae", "reggaeton", "salsa", "samba", "world-music", "afrobeat" ];
 //weather groups
-
-
+var observableWeather= [{name:"Funnel Cloud",valence: 0.01}, {name:"Heavy Thunderstorms with Hail",valence: 0.02},{name:"Light Thunderstorms with Hail", valence: 0.03},{name: "Light Hail", valence: 0.04},{name: "Heavy Hail", valence: 0.05},{name:"Heavy Thunderstorms and Ice Pellets",valence: 0.06},
+{name: "Heavy Thunderstorms and Rain", valence: 0.08},{name: "Light Thunderstorms and Rain", valence: 0.09},{name: "Heavy Thunderstorm", valence: 0.1},{name: "Light Thunderstorms with Small Hail", valence: 0.11},{name: "Heavy Thunderstorms with Small Hail", valence: 0.12},{name: "Light Thunderstorms and Snow", valence: 0.13},
+{name: "Heavy Thunderstorms and Snow", valence: 0.14},{name: "Heavy Freezing Rain", valence: 0.15},{name: "Light Freezing Rain", valence: 0.16},{name: "Light Ice Crystals", valence: 0.17},{name: "Heavy Ice Crystals", valence: 0.18},{name: "Light  Ice Pellets", valence: 0.19},
+{name: "Heavy Ice Pellets", valence: 0.20},{name: "Heavy Freezing Drizzle", valence: 0.21},{name: "Light Snow Blowing Snow Mist", valence: 0.22},{name: "Heavy Snow Blowing Snow Mist", valence: 0.23},{name: "Light Ice Pellet Showers", valence: 0.24},{name: "Heavy Ice Pellet Showers", valence: 0.25},
+{name: "Light Hail Showers", valence: 0.26},{name: "Heavy Hail Showers", valence: 0.27},{name: "Light Small Hail Showers", valence: 0.28},{name: "Heavy Small Hail Showers", valence: 0.29},{name: "Heavy Freezing Fog", valence: 0.30},{name: "Light Thunderstorm", valence: 0.31},
+{name: "Small Hail", valence: 0.32},{name: "Light Freezing Drizzle", valence: 0.33},{name: "Light Freezing Fog", valence: 0.34},{name: "Light Blowing Snow", valence: 0.35},{name: "Heavy Rain", valence: 0.375},{name: "Heavy Rain Showers", valence: 0.39},
+{name: "Heavy Rain Mist", valence: 0.405},{name: "Heavy Mist", valence: 0.42}, {name: "Heavy Fog", valence: 0.435},{name: "Heavy Fog Patches", valence: 0.45},{name: "Heavy Drizzle", valence: 0.465},{name: "Light Rain", valence: 0.48},
+{name: "Light Drizzle", valence: 0.495},{name: "Heavy Snow", valence: 0.51},{name: "Heavy Snow Showers", valence: 0.525},{name: "Light Rain Mist", valence: 0.54},{name: "Light Rain Showers", valence: 0.555},{name: "Light Snow Showers", valence: 0.57},
+{name: "Light Fog", valence: 0.585},{name: "Shallow Fog", valence: 0.60},{name: "Shallow Fog", valence: 0.60},{name: "Patches of Fog", valence: 0.63},{name: "Light Fog Patches", valence: 0.645},{name: "Light Mist", valence: 0.66},
+{ name:" Overcast", valence: 0.67},{ name:" Light Snow", valence: 0.73},{ name:" Mostly Cloudy", valence: 0.79},{ name:" Partly Cloudy", valence: 0.85},{ name:" Scattered Clouds", valence: 0.91},{ name:" Clear", valence: 0.99}
+];
 // playlist seed data
 
 var seed_artists=[];
@@ -209,6 +218,10 @@ var track_energy;
         console.log(seed_artists, seed_genres);
         jQuery.unique(seed_genres);
         console.log(seed_genres);
+      };
+
+      var observationToValence = function(){
+
       };
 
       var tempToEnergy = function(){
