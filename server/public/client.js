@@ -19,6 +19,8 @@ var world_genres= ["bossanova", "brazil", "dancehall", "latin", "reggae", "regga
 
 var seed_artists=[];
 var seed_genres = [];
+var track_dance;
+var track_energy;
 (function() {
 
   /**
@@ -210,7 +212,7 @@ var seed_genres = [];
       };
 
       var tempToEnergy = function(){
-        var track_energy;
+
         var current_temp = weather_data.current_temp;
         if (current_temp > -50 && current_temp <= 0){
           track_energy = 0;
@@ -235,7 +237,7 @@ var seed_genres = [];
       }; //end tempToEnergy
 
       var windToDance = function (){
-        var track_dance;
+
         var wind_speed = weather_data.current_wind;
 
         if(wind_speed >= 0 && wind_speed<=5){
@@ -269,17 +271,31 @@ var seed_genres = [];
         //push genre to seed_genres array
         seed_genres.push(artist_data[h].genres[i]);
       };
+
       var createPlaylist = function(){
+
         //create search url var
         var searchURL = "https://api.spotify.com/v1/recommendations/?seed_artists=";
+        /////// add music data \\\\\\\\\\\\\\\\\
         //add seed artists to search URL
-        for (var i = 0; i < 5; i++) {
+        for (var i = 0; i < 3; i++) {
           searchURL += seed_artists[i];
-          if (i < 4){
+          if (i < 2){
               searchURL += ",";
           }
-
         }
+          searchURL+= "&seed_genres=";
+        for (var j = 0; j < 2; j++) {
+          searchURL += seed_genres[j];
+          if ( j < 1){
+            searchURL += ",";
+          }
+        }
+        ////// addd weather data \\\\\\\\\\
+        searchURL += "&target_energy=";
+        searchURL += track_energy;
+        searchURL += "&target_danceability=";
+        searchURL += track_dance;
         console.log(searchURL);
         $.ajax({
           type: "GET",
@@ -287,7 +303,11 @@ var seed_genres = [];
           dataType: "json",
           headers: {"Authorization": "Bearer " + access_token},
           success: function(playlist){
-            console.log(playlist);
+          console.log(playlist);
+          console.log(playlist.tracks);
+          for (var i = 0; i < playlist.tracks.length; i++) {
+            console.log(playlist.tracks[i].artists[0].name + " " + playlist.tracks[i].name);
+          }
           },
           error: function(error){
             console.log("err: ", error );
