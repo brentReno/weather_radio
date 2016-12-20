@@ -31,6 +31,9 @@ var seed_genres = [];
 var track_dance;
 var track_energy;
 var user_id;
+var playlist_id;
+var playlist_tracks = '';
+
 (function() {
 
   /**
@@ -340,21 +343,43 @@ var user_id;
             console.log(playlist.tracks);
             for (var i = 0; i < playlist.tracks.length; i++) {
               console.log(playlist.tracks[i].artists[0].name + " " + playlist.tracks[i].name);
+              console.log(playlist.tracks[i].uri);
+              if(i == (playlist.tracks.length -1) ){
+                playlist_tracks += playlist.tracks[i].uri;
+              }
+              else{
+              playlist_tracks += playlist.tracks[i].uri +",";
+              }
             }
+            console.log(playlist_tracks);
             $.ajax({
               type:"POST",
               url: "https://api.spotify.com/v1/users/" + user_id + "/playlists",
               dataType: "json",
-              data: "{\"name\":\"A New Playlist\", \"public\":true}",
+              data: "{\"name\":\"A Weather Radio Playlist\", \"public\":true}",
               headers: {"Authorization": "Bearer " + access_token, "Content-Type": "application/json"},
-              success: function(response){
-              console.log("Great Success", response);
-
-            },
-              error: function(error){
-                console.log("err: ", error );
-              }
-
+              success:
+                function(response){
+                  console.log("Great Success", response);
+                  playlist_id = response.id;
+                  $.ajax({
+                    type: "POST",
+                    url: "https://api.spotify.com/v1/users/" + user_id +"/playlists/" + playlist_id +"/tracks?uris=" + playlist_tracks,
+                    dataType: "json",
+                    headers: {"Authorization": "Bearer " + access_token, "Content-Type": "application/json"},
+                    success: function(createdPlaylist){
+                      console.log("Success:", createdPlaylist);
+                    },
+                    error:
+                    function(error){
+                      console.log("err: ", error );
+                    }
+                  });
+                },
+              error:
+                function(error){
+                  console.log("err: ", error );
+                }
             });
           },
           error: function(error){
