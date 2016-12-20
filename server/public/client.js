@@ -24,12 +24,13 @@ var observableWeather= [{name:"Funnel Cloud",valence: 0.01}, {name:"Heavy Thunde
 {name: "Light Fog", valence: 0.585},{name: "Shallow Fog", valence: 0.60},{name: "Patches of Fog", valence: 0.63},{name: "Light Fog Patches", valence: 0.645},{name: "Light Mist", valence: 0.66},
 { name:"Overcast", valence: 0.67},{ name:"Light Snow", valence: 0.73},{ name:"Mostly Cloudy", valence: 0.79},{ name:"Partly Cloudy", valence: 0.85},{ name:"Scattered Clouds", valence: 0.91},{ name:"Clear", valence: 0.99}
 ];
-// playlist seed data
+// playlist generation data
 var seed_valence;
 var seed_artists=[];
 var seed_genres = [];
 var track_dance;
 var track_energy;
+var user_id;
 (function() {
 
   /**
@@ -77,6 +78,7 @@ var track_energy;
           },
           success: function(response) {
             userProfilePlaceholder.innerHTML = userProfileTemplate(response);
+            user_id =  response.id;
 
             $('#login').hide();
             $('#loggedin').show();
@@ -118,7 +120,12 @@ var track_energy;
       });
     });
 
-    document.getElementById('obtain-artists').addEventListener('click', function() {
+    document.getElementById("obtain-playlist").addEventListener('click', function(){
+      obtainWeather();
+
+    });
+
+    var obtainArtists= function() {
       console.log("access", access_token);
       $.ajax({
         type: "GET",
@@ -148,9 +155,10 @@ var track_energy;
           console.log("Error retrieving spotify API ", err);
         }
       });
-    });
+    };
 
-    document.getElementById('obtain-weather').addEventListener('click', function(){
+
+    var obtainWeather =  function(){
       $.ajax({
         type: "GET",
         url: "http://api.wunderground.com/api/b67101dd22166f78/conditions/q/MN/Minneapolis.json",
@@ -172,9 +180,10 @@ var track_energy;
           tempToEnergy();
           windToDance();
           observationToValence();
+          obtainArtists();
         }
       });
-    }); // end weather click
+    };
 
     var findGenres = function(){
       var artistSeedId;
@@ -327,11 +336,26 @@ var track_energy;
           dataType: "json",
           headers: {"Authorization": "Bearer " + access_token},
           success: function(playlist){
-          console.log(playlist);
-          console.log(playlist.tracks);
-          for (var i = 0; i < playlist.tracks.length; i++) {
-            console.log(playlist.tracks[i].artists[0].name + " " + playlist.tracks[i].name);
-          }
+            console.log(playlist);
+            console.log(playlist.tracks);
+            for (var i = 0; i < playlist.tracks.length; i++) {
+              console.log(playlist.tracks[i].artists[0].name + " " + playlist.tracks[i].name);
+            }
+            $.ajax({
+              type:"POST",
+              url: "https://api.spotify.com/v1/users/" + user_id + "/playlists",
+              dataType: "json",
+              data: "{\"name\":\"A New Playlist\", \"public\":true}",
+              headers: {"Authorization": "Bearer " + access_token, "Content-Type": "application/json"},
+              success: function(response){
+              console.log("Great Success", response);
+
+            },
+              error: function(error){
+                console.log("err: ", error );
+              }
+
+            });
           },
           error: function(error){
             console.log("err: ", error );
