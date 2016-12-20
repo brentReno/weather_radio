@@ -160,7 +160,6 @@ var playlist_tracks = '';
       });
     };
 
-
     var obtainWeather =  function(){
       $.ajax({
         type: "GET",
@@ -233,158 +232,158 @@ var playlist_tracks = '';
         console.log(seed_genres);
       };
 
-      var observationToValence = function(){
-        for (var k = 0; k < observableWeather.length; k++) {
-          if(observableWeather[k].name == weather_data.current_conditions){
-            console.log("in the if");
-            seed_valence = observableWeather[k].valence;
-            console.log(seed_valence);
+    var observationToValence = function(){
+      for (var k = 0; k < observableWeather.length; k++) {
+        if(observableWeather[k].name == weather_data.current_conditions){
+          console.log("in the if");
+          seed_valence = observableWeather[k].valence;
+          console.log(seed_valence);
 
-          }
         }
-      };
+      }
+    };
 
-      var tempToEnergy = function(){
+    var tempToEnergy = function(){
 
-        var current_temp = weather_data.current_temp;
-        if (current_temp > -50 && current_temp <= 0){
-          track_energy = 0;
-        }
-        else if ((current_temp > 0 && current_temp <= 10)||(current_temp > 50 && current_temp <= 60)) {
-          track_energy = 0.2;
-        }
-        else if ((current_temp > 10 && current_temp<=20) || (current_temp > 60 && current_temp <= 70)) {
-          track_energy = 0.4;
-        }
-        else if ((current_temp > 20 && current_temp<=30) || (current_temp > 70 && current_temp <= 80)) {
-          track_energy = 0.6;
-        }
-        else if ((current_temp> 30 && current_temp <= 40) || (current_temp > 80 && current_temp <= 90)) {
-          track_energy = 0.8;
-        }
-        else if ((current_temp > 40 && current_temp <= 50) || (current_temp > 90 && current_temp <= 120)) {
-          track_energy = 1;
-        }
-        console.log(track_energy);
-        return track_energy;
-      }; //end tempToEnergy
+      var current_temp = weather_data.current_temp;
+      if (current_temp > -50 && current_temp <= 0){
+        track_energy = 0;
+      }
+      else if ((current_temp > 0 && current_temp <= 10)||(current_temp > 50 && current_temp <= 60)) {
+        track_energy = 0.2;
+      }
+      else if ((current_temp > 10 && current_temp<=20) || (current_temp > 60 && current_temp <= 70)) {
+        track_energy = 0.4;
+      }
+      else if ((current_temp > 20 && current_temp<=30) || (current_temp > 70 && current_temp <= 80)) {
+        track_energy = 0.6;
+      }
+      else if ((current_temp> 30 && current_temp <= 40) || (current_temp > 80 && current_temp <= 90)) {
+        track_energy = 0.8;
+      }
+      else if ((current_temp > 40 && current_temp <= 50) || (current_temp > 90 && current_temp <= 120)) {
+        track_energy = 1;
+      }
+      console.log(track_energy);
+      return track_energy;
+    }; //end tempToEnergy
 
-      var windToDance = function (){
+    var windToDance = function (){
 
-        var wind_speed = weather_data.current_wind;
+      var wind_speed = weather_data.current_wind;
 
-        if(wind_speed >= 0 && wind_speed<=5){
-          track_dance = 0;
-        }
-        else if (wind_speed >5 && wind_speed <= 10) {
-          track_dance = 0.2;
-        }
-        else if (wind_speed > 10 &&  wind_speed <= 15) {
-          track_dance = 0.4;
-        }
+      if(wind_speed >= 0 && wind_speed<=5){
+        track_dance = 0;
+      }
+      else if (wind_speed >5 && wind_speed <= 10) {
+        track_dance = 0.2;
+      }
+      else if (wind_speed > 10 &&  wind_speed <= 15) {
+        track_dance = 0.4;
+      }
 
-        else if (wind_speed > 15 && wind_speed <= 20) {
-          track_dance = 0.6;
-        }
-        else if (wind_speed > 20 && wind_speed <= 30){
-          track_dance = 0.8;
-        }
+      else if (wind_speed > 15 && wind_speed <= 20) {
+        track_dance = 0.6;
+      }
+      else if (wind_speed > 20 && wind_speed <= 30){
+        track_dance = 0.8;
+      }
 
-        else if (wind_speed > 30) {
-          track_dance = 1.0;
-        }
-        console.log(track_dance);
-        return track_dance;
-      };//end windToDance
+      else if (wind_speed > 30) {
+        track_dance = 1.0;
+      }
+      console.log(track_dance);
+      return track_dance;
+    };//end windToDance
 
-      var createSeedData = function (h, i){
-        artistSeedId = artist_data[h].artist_uri.substring(15);
-        //push artist uri to seed_artists array
-        seed_artists.push(artistSeedId );
-        //push genre to seed_genres array
-        seed_genres.push(artist_data[h].genres[i]);
-      };
+    var createSeedData = function (h, i){
+      artistSeedId = artist_data[h].artist_uri.substring(15);
+      //push artist uri to seed_artists array
+      seed_artists.push(artistSeedId );
+      //push genre to seed_genres array
+      seed_genres.push(artist_data[h].genres[i]);
+    };
 
-      var createPlaylist = function(){
+    var createPlaylist = function(){
 
-        //create search url var
-        var searchURL = "https://api.spotify.com/v1/recommendations/?seed_artists=";
-        /////// add music data \\\\\\\\\\\\\\\\\
-        //add seed artists to search URL
-        for (var i = 0; i < 3; i++) {
-          searchURL += seed_artists[i];
-          if (i < 2){
-              searchURL += ",";
-          }
-        }
-          searchURL+= "&seed_genres=";
-        for (var j = 0; j < 2; j++) {
-          searchURL += seed_genres[j];
-          if ( j < 1){
+      //create search url var
+      var searchURL = "https://api.spotify.com/v1/recommendations/?seed_artists=";
+      /////// add music data \\\\\\\\\\\\\\\\\
+      //add seed artists to search URL
+      for (var i = 0; i < 3; i++) {
+        searchURL += seed_artists[i];
+        if (i < 2){
             searchURL += ",";
-          }
         }
-        ////// addd weather data \\\\\\\\\\
-        searchURL += "&target_energy=";
-        searchURL += track_energy;
-        searchURL += "&target_danceability=";
-        searchURL += track_dance;
-        searchURL +="&target_valence=";
-        searchURL += seed_valence;
-        searchURL += "&limit=50";
-        console.log(searchURL);
-        $.ajax({
-          type: "GET",
-          url: searchURL,
-          dataType: "json",
-          headers: {"Authorization": "Bearer " + access_token},
-          success: function(playlist){
-            console.log(playlist);
-            console.log(playlist.tracks);
-            for (var i = 0; i < playlist.tracks.length; i++) {
-              console.log(playlist.tracks[i].artists[0].name + " " + playlist.tracks[i].name);
-              console.log(playlist.tracks[i].uri);
-              if(i == (playlist.tracks.length -1) ){
-                playlist_tracks += playlist.tracks[i].uri;
-              }
-              else{
-              playlist_tracks += playlist.tracks[i].uri +",";
-              }
+      }
+        searchURL+= "&seed_genres=";
+      for (var j = 0; j < 2; j++) {
+        searchURL += seed_genres[j];
+        if ( j < 1){
+          searchURL += ",";
+        }
+      }
+      ////// addd weather data \\\\\\\\\\
+      searchURL += "&target_energy=";
+      searchURL += track_energy;
+      searchURL += "&target_danceability=";
+      searchURL += track_dance;
+      searchURL +="&target_valence=";
+      searchURL += seed_valence;
+      searchURL += "&limit=50";
+      console.log(searchURL);
+      $.ajax({
+        type: "GET",
+        url: searchURL,
+        dataType: "json",
+        headers: {"Authorization": "Bearer " + access_token},
+        success: function(playlist){
+          console.log(playlist);
+          console.log(playlist.tracks);
+          for (var i = 0; i < playlist.tracks.length; i++) {
+            console.log(playlist.tracks[i].artists[0].name + " " + playlist.tracks[i].name);
+            console.log(playlist.tracks[i].uri);
+            if(i == (playlist.tracks.length -1) ){
+              playlist_tracks += playlist.tracks[i].uri;
             }
-            console.log(playlist_tracks);
-            $.ajax({
-              type:"POST",
-              url: "https://api.spotify.com/v1/users/" + user_id + "/playlists",
-              dataType: "json",
-              data: "{\"name\":\"A Weather Radio Playlist\", \"public\":true}",
-              headers: {"Authorization": "Bearer " + access_token, "Content-Type": "application/json"},
-              success:
-                function(response){
-                  console.log("Great Success", response);
-                  playlist_id = response.id;
-                  $.ajax({
-                    type: "POST",
-                    url: "https://api.spotify.com/v1/users/" + user_id +"/playlists/" + playlist_id +"/tracks?uris=" + playlist_tracks,
-                    dataType: "json",
-                    headers: {"Authorization": "Bearer " + access_token, "Content-Type": "application/json"},
-                    success: function(createdPlaylist){
-                      console.log("Success:", createdPlaylist);
-                    },
-                    error:
-                    function(error){
-                      console.log("err: ", error );
-                    }
-                  });
-                },
-              error:
-                function(error){
-                  console.log("err: ", error );
-                }
-            });
-          },
-          error: function(error){
-            console.log("err: ", error );
+            else{
+            playlist_tracks += playlist.tracks[i].uri +",";
+            }
           }
-        });
-      };
+          console.log(playlist_tracks);
+          $.ajax({
+            type:"POST",
+            url: "https://api.spotify.com/v1/users/" + user_id + "/playlists",
+            dataType: "json",
+            data: "{\"name\":\"A Weather Radio Playlist\", \"public\":true}",
+            headers: {"Authorization": "Bearer " + access_token, "Content-Type": "application/json"},
+            success:
+              function(response){
+                console.log("Great Success", response);
+                playlist_id = response.id;
+                $.ajax({
+                  type: "POST",
+                  url: "https://api.spotify.com/v1/users/" + user_id +"/playlists/" + playlist_id +"/tracks?uris=" + playlist_tracks,
+                  dataType: "json",
+                  headers: {"Authorization": "Bearer " + access_token, "Content-Type": "application/json"},
+                  success: function(createdPlaylist){
+                    console.log("Success:", createdPlaylist);
+                  },
+                  error:
+                  function(error){
+                    console.log("err: ", error );
+                  }
+                });
+              },
+            error:
+              function(error){
+                console.log("err: ", error );
+              }
+          });
+        },
+        error: function(error){
+          console.log("err: ", error );
+        }
+      });
+    };
 })();
