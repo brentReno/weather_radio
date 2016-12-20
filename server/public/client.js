@@ -4,6 +4,11 @@
 var weather_data = {};
 var artist_data =[];
 
+//city data
+var user_zip =55401;
+var user_city;
+var user_state;
+
 // music genres
 var chill_genres= ["acoustic","ambient","chill","singer-songwriter","songwriter"];
 var rock_genres= ["alt-rock", "alternative", "emo", "garage", "grunge", "indie", "indie-pop", "psych-rock", "punk", "punk-rock", "rock", "rock-n-roll", "rockabilly"];
@@ -127,6 +132,21 @@ var playlist_tracks = '';
       obtainWeather();
 
     });
+    var obtainCityState = function(){
+      $.ajax({
+        type: "GET",
+        dataType: "json",
+        url: 'http://maps.googleapis.com/maps/api/geocode/json?address='+user_zip,
+        success: function(location){
+          user_city = location.results[0].address_components[1].short_name;
+          user_state = location.results[0].address_components[3].short_name;
+          console.log(user_city);
+          console.log(user_state);
+
+        }
+      });
+    };
+    obtainCityState();
 
     var obtainArtists= function() {
       console.log("access", access_token);
@@ -161,9 +181,10 @@ var playlist_tracks = '';
     };
 
     var obtainWeather =  function(){
+
       $.ajax({
         type: "GET",
-        url: "http://api.wunderground.com/api/b67101dd22166f78/conditions/q/MN/Minneapolis.json",
+        url: "http://api.wunderground.com/api/b67101dd22166f78/conditions/q/"+ user_state+"/"+user_city+".json",
         dataType: "json",
         success: function(weather){
           console.log("back with", weather);
