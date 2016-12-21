@@ -38,6 +38,7 @@ var track_energy;
 var user_id;
 var playlist_id;
 var playlist_tracks = '';
+var playlist_url;
 
 (function() {
 
@@ -339,6 +340,7 @@ var playlist_tracks = '';
               function(response){
                 console.log("Great Success", response);
                 playlist_id = response.id;
+                playlist_url = response.uri;
                 $.ajax({
                   type: "POST",
                   url: "https://api.spotify.com/v1/users/" + user_id +"/playlists/" + playlist_id +"/tracks?uris=" + playlist_tracks,
@@ -346,6 +348,9 @@ var playlist_tracks = '';
                   headers: {"Authorization": "Bearer " + access_token, "Content-Type": "application/json"},
                   success: function(createdPlaylist){
                     console.log("Success:", createdPlaylist);
+                    var embedString = "https://embed.spotify.com/?uri=" + playlist_url;
+                    console.log(embedString);
+                    document.getElementById('spotifyPlayer').src = embedString;
                   },
                   error:
                   function(error){
