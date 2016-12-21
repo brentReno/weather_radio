@@ -38,6 +38,7 @@ var track_energy;
 var user_id;
 var playlist_id;
 var playlist_tracks = '';
+var playlist_array = [];
 var playlist_url;
 
 (function() {
@@ -65,8 +66,8 @@ var playlist_url;
   if (error) {
     alert('There was an error during the authentication');
   } else {
-    if (access_token) {
-      $.ajax({
+      if (access_token) {
+        $.ajax({
           url: 'https://api.spotify.com/v1/me',
           headers: {
             'Authorization': 'Bearer ' + access_token
@@ -74,7 +75,6 @@ var playlist_url;
           success: function(response) {
             // userProfilePlaceholder.innerHTML = userProfileTemplate(response);
             user_id =  response.id;
-
             $('#login').hide();
             $('#loggedin').show();
           }
@@ -322,13 +322,20 @@ var playlist_url;
           for (var i = 0; i < playlist.tracks.length; i++) {
             console.log(playlist.tracks[i].artists[0].name + " " + playlist.tracks[i].name);
             console.log(playlist.tracks[i].uri);
-            if(i == (playlist.tracks.length -1) ){
-              playlist_tracks += playlist.tracks[i].uri;
-            }
-            else{
-            playlist_tracks += playlist.tracks[i].uri +",";
-            }
+            playlist_array. push(playlist.tracks[i].uri);
+            
           }
+          // account for duplicate tracks
+            jQuery.unique(playlist_array);
+            for (i = 0; i < playlist_array.length; i++) {
+              if(i == (playlist_array.length -1) ){
+                playlist_tracks += playlist_array[i];
+              }
+              else{
+              playlist_tracks += playlist_array[i] +",";
+              }
+            }
+
           console.log(playlist_tracks);
           $.ajax({
             type:"POST",
