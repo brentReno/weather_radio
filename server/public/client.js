@@ -5,7 +5,7 @@ var weather_data = {};
 var artist_data =[];
 
 //city data
-var user_zip =55401;
+var user_zip;
 var user_city;
 var user_state;
 
@@ -86,10 +86,11 @@ var playlist_tracks = '';
   }
 
     document.getElementById("obtain-playlist").addEventListener('click', function(){
-      obtainWeather();
-
+    obtainCityState();
     });
+
     var obtainCityState = function(){
+      user_zip=document.getElementById('zipcode').value;
       $.ajax({
         type: "GET",
         dataType: "json",
@@ -99,11 +100,10 @@ var playlist_tracks = '';
           user_state = location.results[0].address_components[3].short_name;
           console.log(user_city);
           console.log(user_state);
-
+          obtainWeather();
         }
       });
     };
-    obtainCityState();
 
     var obtainArtists= function() {
       console.log("access", access_token);
