@@ -323,10 +323,12 @@ var playlist_url;
             console.log(playlist.tracks[i].artists[0].name + " " + playlist.tracks[i].name);
             console.log(playlist.tracks[i].uri);
             playlist_array. push(playlist.tracks[i].uri);
-            
+
           }
           // account for duplicate tracks
             jQuery.unique(playlist_array);
+            //empty playlist
+            playlist_tracks = '';
             for (i = 0; i < playlist_array.length; i++) {
               if(i == (playlist_array.length -1) ){
                 playlist_tracks += playlist_array[i];
