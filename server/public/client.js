@@ -40,6 +40,7 @@ var playlist_id;
 var playlist_tracks = '';
 var playlist_array = [];
 var playlist_url;
+var randomNumber;
 
 (function() {
 
@@ -290,14 +291,19 @@ var playlist_url;
       /////// add music data \\\\\\\\\\\\\\\\\
       //add seed artists to search URL
       for (var i = 0; i < 3; i++) {
-        searchURL += seed_artists[i];
+        //get randomNumber
+        randomNumberGen(0,seed_artists.length);
+        console.log(randomNumber);
+        searchURL += seed_artists[randomNumber];
         if (i < 2){
             searchURL += ",";
         }
       }
         searchURL+= "&seed_genres=";
       for (var j = 0; j < 2; j++) {
-        searchURL += seed_genres[j];
+        randomNumberGen(0,seed_genres.length);
+        console.log(randomNumber);
+        searchURL += seed_genres[randomNumber];
         if ( j < 1){
           searchURL += ",";
         }
@@ -378,4 +384,8 @@ var playlist_url;
         }
       });
     };
+
+    var randomNumberGen = function(min, max){
+      randomNumber =Math.floor(Math.random()*(max - min)+min);
+    } ;
 })();
