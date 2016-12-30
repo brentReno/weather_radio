@@ -154,7 +154,7 @@ var randomNumber;
           // get the current wind speed
           var current_wind= weather.current_observation.wind_mph;
           // push current data into weather_data
-          weather_data.current_temp = current_temp;
+          weather_data.current_temp = Math.floor(current_temp);
           weather_data.current_conditions= current_conditions;
           weather_data.current_wind= current_wind;
           console.log(current_temp, current_conditions, current_wind);
