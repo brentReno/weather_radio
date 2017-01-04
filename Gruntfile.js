@@ -10,6 +10,23 @@ module.exports = function(grunt) {
           './server/public/scripts/client.min.js': './server/public/scripts/client.js'
         }
       }
+    },
+    sass: {
+      build: {
+        files: {
+          'server/public/styles/styles.css': 'server/public/styles/styles.sass'
+        }
+      }
+    },
+    cssmin: {
+      options: {
+        banner: '/*\n <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> \n*/\n'
+      },
+      build: {
+        files: {
+          'server/public/styles/styles.min.css': 'server/public/styles/styles.css'
+        }
+      }
     }
   });
   grunt.loadNpmTasks('grunt-contrib-cssmin');
