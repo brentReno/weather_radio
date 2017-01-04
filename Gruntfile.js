@@ -32,6 +32,10 @@ module.exports = function(grunt) {
       stylesheets: {
         files: ['server/public/styles/styles.css', 'server/public/styles/styles.sass'],
         tasks: ['sass', 'cssmin']
+      },
+      scripts:{
+        files: ["server/public/scripts/client.js"],
+        tasks:['uglify']
       }
     },
   });
