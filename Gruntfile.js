@@ -27,7 +27,13 @@ module.exports = function(grunt) {
           'server/public/styles/styles.min.css': 'server/public/styles/styles.css'
         }
       }
-    }
+    },
+    watch: {
+      stylesheets: {
+        files: ['server/public/styles/styles.css', 'server/public/styles/styles.sass'],
+        tasks: ['sass', 'cssmin']
+      }
+    },
   });
   grunt.loadNpmTasks('grunt-contrib-cssmin');
   grunt.loadNpmTasks('grunt-contrib-watch');
