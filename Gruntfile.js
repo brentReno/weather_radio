@@ -7,7 +7,7 @@ module.exports = function(grunt) {
       },
       build: {
         files: {
-          './server/public/scripts/client.min.js': './server/public/client.js'
+          './server/public/scripts/client.min.js': './server/public/scripts/client.js'
         }
       }
     }
