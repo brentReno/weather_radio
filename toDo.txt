@@ -1,8 +1,10 @@
-As of 12-15
+As of 12-30
 
 - strip spotify:artist: off of the artist uri strings x
 - write function for push artist and push genre x
-- match current_weather to valence
+- match current_weather to valence x
 - create url for createPalylist function x
-- wrap it into a single function
+- wrap it into a single function x
 - clean up code
+- error handling
+- look into how the zip code will return city state data. NOT CONSTENT*****
