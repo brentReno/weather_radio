@@ -1,19 +1,46 @@
 $icon-size: 48px
 $header-size: 64px
+$button-text: 24px
 $inconsolata: 'Inconsolata', monospace
 $montserrat: 'Montserrat', sans-serif
+$light-grey: #F7F7FF
+$dark-grey: #070600
+$blue: #058ED9
+$peach: #ff9068
+$pink: #fd746c
+$login-radius: 20px
+body
+  background: linear-gradient(to left, $pink , $peach)
 
 #login-header
   font-size: $header-size
-  margin-bottom: 0.25em
   font-family: $inconsolata
-  font-weight: bold
+  color: $dark-grey
+  background-color: $light-grey
+  width: 50%
+  margin-left: auto
+  margin-right: auto
+  padding-bottom: 0.25em
+  border-top-left-radius: $login-radius
+  border-top-right-radius: $login-radius
+
+#login-button
+  font-family: $montserrat
+  font-size: $button-text
+  background-color: $blue
+  border: 1px solid $blue
+  color: $light-grey
+  padding-top: 0.75em
+  padding-bottom: 0.75em
 
 #icon
   font-size: $icon-size
+  color: $dark-grey
+  margin-left: 0.20em
 
 #login
   margin-top: 15em
+  padding-bottom: 3em
 
 #login, #loggedin
   display: none
@@ -32,7 +59,22 @@ $montserrat: 'Montserrat', sans-serif
 
 #cloud-icon
   margin-top: -1.5em
-  margin-left: -2em
+  margin-left: -4em
+#music-icon
+  margin-left: 3em
 
 #logo-icons
-  margin-left: 7em
+  margin-top: -1em
+  margin-left: auto
+  margin-right: auto
+  background-color: $light-grey
+  width: 50%
+
+#login-button-background
+  background-color: $light-grey
+  width: 50%
+  margin-left: auto
+  margin-right: auto
+  padding-bottom: 2em
+  border-bottom-left-radius: $login-radius
+  border-bottom-right-radius: $login-radius

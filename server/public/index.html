@@ -2,37 +2,35 @@
 <html>
   <head>
     <title>Example of the Authorization Code flow with Spotify</title>
-    <link href="https://fonts.googleapis.com/css?family=Inconsolata|Montserrat" rel="stylesheet">
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="/styles/styles.css">
 
   </head>
 
   <body>
-    <div class="container-fluid">
-      <div id="login">
+    <div id="login">
         <h1 id="login-header" class="text-center">Weather Radio</h1>
         <div id="logo-icons" class="row">
           <div class = "col-xs-1 col-xs-offset-4" >
-            <img src="/assets/cassette.svg">
+            <img id="cloud-icon" src="/assets/Cloud-Rain-Sun.svg">
           </div>
           <div class = "col-xs-1">
             <span id="icon" class="glyphicon glyphicon-plus"></span>
           </div>
           <div class = "col-xs-1">
-            <img id="cloud-icon" src="/assets/Cloud-Rain-Sun.svg">
+            <img id="music-icon" src="/assets/cassette.svg">
           </div>
         </div>
-        <div class="row">
-          <div class="col-xs-4 col-xs-offset-4">
-            <a href="/login" class="btn btn-info center">Log in with Spotify</a>
+        <div id ="login-button-background"class="row">
+          <div class="col-xs-8 col-xs-offset-2">
+            <a id="login-button" href="/login" class="btn btn-info center">Log in with Spotify</a>
           </div>
       </div>
+    </div>
       <div id="loggedin">
         <input type="text" name="" id="zipcode"value="" placeholder="Enter Zipcode">
         <button class="btn btn-default" id="obtain-playlist">Get Playlist</button>
       </div>
-    </div>
     <div id="player">
       <iframe id="spotifyPlayer" src="" width="300" height="380" frameborder="0" allowtransparency="true"></iframe>
     </div>
@@ -41,6 +39,6 @@
 
 
     <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
-    <script src="scripts/client.min.js"></script>
+    <script src="/scripts/client.min.js"></script>
   </body>
 </html>
