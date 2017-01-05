@@ -2,22 +2,31 @@
 <html>
   <head>
     <title>Example of the Authorization Code flow with Spotify</title>
-    <link rel="stylesheet" href="main.css">
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
 
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/styles/styles.css">
     </style>
   </head>
 
   <body>
-    <div class="container">
+    <div class="container-fluid">
       <div id="login">
-        <h1>Weather Radio</h1>
-        <div class="row">
-          <img src="/assets/cassette.svg">
-          <i class="glyphicon glyphicon-plus"></i>
-          <img src="/assets/Cloud-Rain-Sun.svg">
+        <h1 class="text-center">Weather Radio</h1>
+        <div id="logo-icons" class="row">
+          <div class = "col-xs-1 col-xs-offset-4" >
+            <img src="/assets/cassette.svg">
+          </div>
+          <div class = "col-xs-1">
+            <span id="icon" class="glyphicon glyphicon-plus"></span>
+          </div>
+          <div class = "col-xs-1">
+            <img id="cloud-icon" src="/assets/Cloud-Rain-Sun.svg">
+          </div>
         </div>
-        <a href="/login" class="btn btn-info">Log in with Spotify</a>
+        <div class="row">
+          <div class="col-xs-4 col-xs-offset-4">
+            <a href="/login" class="btn btn-info center">Log in with Spotify</a>
+          </div>
       </div>
       <div id="loggedin">
         <input type="text" name="" id="zipcode"value="" placeholder="Enter Zipcode">
