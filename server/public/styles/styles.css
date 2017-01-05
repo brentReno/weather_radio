@@ -1,6 +1,9 @@
 #icon {
   font-size: 48px; }
 
+#login {
+  margin-top: 15em; }
+
 #login, #loggedin {
   display: none; }
 
@@ -20,6 +23,6 @@
   margin-left: -2em; }
 
 #logo-icons {
-  margin-left: 3.5em; }
+  margin-left: 7em; }
 
 /*# sourceMappingURL=styles.css.map */
