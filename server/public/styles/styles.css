@@ -1,3 +1,9 @@
+#login-header {
+  font-size: 64px;
+  margin-bottom: 0.25em;
+  font-family: "Inconsolata", monospace;
+  font-weight: bold; }
+
 #icon {
   font-size: 48px; }
 
