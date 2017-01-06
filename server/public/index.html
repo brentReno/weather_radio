@@ -8,7 +8,7 @@
   </head>
 
   <body>
-    <div id="login">
+    <div id="login" class="container-fluid">
         <h1 id="login-header" class="text-center">Weather Radio</h1>
         <div id="logo-icons" class="row">
           <div class = "col-xs-1 col-xs-offset-4" >
@@ -23,17 +23,17 @@
         </div>
         <div id ="login-button-background"class="row">
           <div class="col-xs-8 col-xs-offset-2">
-            <a id="login-button" href="/login" class="btn btn-info center">Log in with Spotify</a>
+            <a href="/login" class="btn btn-info center button">Log in with Spotify</a>
           </div>
       </div>
     </div>
-      <div id="loggedin">
-        <input type="text" name="" id="zipcode"value="" placeholder="Enter Zipcode">
-        <button class="btn btn-default" id="obtain-playlist">Get Playlist</button>
-      </div>
-    <div id="player">
-      <iframe id="spotifyPlayer" src="" width="300" height="380" frameborder="0" allowtransparency="true"></iframe>
-    </div>
+      <div id="loggedin" class="container-fluid">
+        <div class='zipcode'>
+          <input type="text" class="zip-in"name="" id="zipcode"value="" placeholder="Enter Zipcode">
+          <button class="btn btn-default button generate center" id="obtain-playlist">Get Playlist</button>
+        </div>
+      </div>  
+
 
 
 

@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css?family=Inconsolata|Montserrat");
 body {
   background: linear-gradient(to left, #fd746c, #ff9068); }
 
@@ -11,9 +12,12 @@ body {
   margin-right: auto;
   padding-bottom: 0.25em;
   border-top-left-radius: 20px;
-  border-top-right-radius: 20px; }
+  border-top-right-radius: 20px;
+  border-top: 2px solid #070600;
+  border-left: 2px solid #070600;
+  border-right: 2px solid #070600; }
 
-#login-button {
+.button {
   font-family: "Montserrat", sans-serif;
   font-size: 24px;
   background-color: #058ED9;
@@ -57,6 +61,8 @@ body {
   margin-left: auto;
   margin-right: auto;
   background-color: #F7F7FF;
+  border-left: 2px solid #070600;
+  border-right: 2px solid #070600;
   width: 50%; }
 
 #login-button-background {
@@ -66,6 +72,50 @@ body {
   margin-right: auto;
   padding-bottom: 2em;
   border-bottom-left-radius: 20px;
-  border-bottom-right-radius: 20px; }
+  border-bottom-right-radius: 20px;
+  border-bottom: 2px solid #070600;
+  border-left: 2px solid #070600;
+  border-right: 2px solid #070600; }
+
+.zipcode {
+  background-color: #F7F7FF;
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 1em;
+  padding-bottom: 1em;
+  border-radius: 20px;
+  margin-top: 10em;
+  border: 2px solid #070600; }
+
+.zip-in {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  outline: none;
+  display: block;
+  width: 50%;
+  padding: 7px;
+  border: none;
+  border-bottom: 2px solid #ddd;
+  background: transparent;
+  margin-bottom: 10px;
+  height: 45px;
+  font-size: 24px;
+  font-family: "Inconsolata", monospace; }
+
+.generate {
+  width: 60%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 0;
+  padding-bottom: 0; }
+
+#spotifyPlayer {
+  display: block;
+  margin-top: 1em;
+  margin-left: auto;
+  margin-right: auto; }
 
 /*# sourceMappingURL=styles.css.map */

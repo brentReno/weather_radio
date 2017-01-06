@@ -9,6 +9,7 @@ $blue: #058ED9
 $peach: #ff9068
 $pink: #fd746c
 $login-radius: 20px
+@import url('https://fonts.googleapis.com/css?family=Inconsolata|Montserrat')
 body
   background: linear-gradient(to left, $pink , $peach)
 
@@ -23,8 +24,11 @@ body
   padding-bottom: 0.25em
   border-top-left-radius: $login-radius
   border-top-right-radius: $login-radius
+  border-top: 2px solid $dark-grey
+  border-left: 2px solid $dark-grey
+  border-right: 2px solid $dark-grey
 
-#login-button
+.button
   font-family: $montserrat
   font-size: $button-text
   background-color: $blue
@@ -68,6 +72,8 @@ body
   margin-left: auto
   margin-right: auto
   background-color: $light-grey
+  border-left: 2px solid $dark-grey
+  border-right: 2px solid $dark-grey
   width: 50%
 
 #login-button-background
@@ -78,3 +84,47 @@ body
   padding-bottom: 2em
   border-bottom-left-radius: $login-radius
   border-bottom-right-radius: $login-radius
+  border-bottom: 2px solid $dark-grey
+  border-left: 2px solid $dark-grey
+  border-right: 2px solid $dark-grey
+.zipcode
+  background-color: $light-grey
+  width: 50%
+  margin-left: auto
+  margin-right: auto
+  padding-top: 1em
+  padding-bottom: 1em
+  border-radius: $login-radius
+  margin-top: 10em
+  border: 2px solid $dark-grey
+
+
+.zip-in
+  display: block
+  margin-left: auto
+  margin-right: auto
+  text-align: center
+  outline: none
+  display: block
+  width: 50%
+  padding: 7px
+  border: none
+  border-bottom: 2px solid #ddd
+  background: transparent
+  margin-bottom: 10px
+  height: 45px
+  font-size: 24px
+  font-family: $inconsolata
+
+.generate
+  width: 60%
+  margin-left: auto
+  margin-right: auto
+  padding-top: 0
+  padding-bottom: 0
+
+#spotifyPlayer
+  display: block
+  margin-top: 1em
+  margin-left: auto
+  margin-right: auto
