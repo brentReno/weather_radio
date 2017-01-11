@@ -1,5 +1,9 @@
 @import url("https://fonts.googleapis.com/css?family=Inconsolata|Montserrat");
+html {
+  height: 100%; }
+
 body {
+  height: 100%;
   background: linear-gradient(to left, #fd746c, #ff9068); }
 
 #login-header {
@@ -85,7 +89,7 @@ body {
   padding-top: 1em;
   padding-bottom: 1em;
   border-radius: 20px;
-  margin-top: 10em;
+  margin-top: 5em;
   border: 2px solid #070600; }
 
 .zip-in {
