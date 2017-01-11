@@ -100,11 +100,11 @@ var randomNumber;
     var obtainCityState = function(){
       user_zip=document.getElementById('zipcode').value;
       if (!user_zip){
-        alert("Please enter a zipcode to proceed");
+        swal("Please enter a zipcode to proceed");
         return;
       }
       if(user_zip.length < 5){
-        alert("Please enter a valid zipcode to proceed");
+        swal("Please enter a valid zipcode to proceed");
         return;
       }
       $.ajax({
