@@ -112,9 +112,23 @@ body {
   padding-top: 0;
   padding-bottom: 0; }
 
+#playerBackground {
+  background-color: #F7F7FF;
+  height: 440px;
+  width: 320px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 1em;
+  border-radius: 20px;
+  border: 2px solid #070600; }
+
 #spotifyPlayer {
   display: block;
-  margin-top: 1em;
+  position: relative;
+  width: 290px;
+  height: 400px;
+  margin-top: 1.2em;
+  margin-bottom: auto;
   margin-left: auto;
   margin-right: auto; }
 
