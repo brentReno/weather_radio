@@ -17,6 +17,7 @@ var country_folk_genres= ["bluegrass","country", "folk", "honky-tonk", "singer-s
 var hiphop_rnb_genres= ["breakbeat", "hip-hop", "funk", "groove", "r-n-b", "soul"];
 var electronic_genres= ["chicago-house", "club", "dance", "deep-house", "detroit-techno", "drum-and-bass", "dubstep", "edm", "electro", "electronic", "house", "post-dubstep", "progressive-house", "techno" , "trance", "trip-hop"];
 var world_genres= ["bossanova", "brazil", "dancehall", "latin", "reggae", "reggaeton", "salsa", "samba", "world-music", "afrobeat" ];
+
 //weather groups
 var observableWeather= [{name:"Funnel Cloud",valence: 0.01}, {name:"Heavy Thunderstorms with Hail",valence: 0.02},{name:"Light Thunderstorms with Hail", valence: 0.03},{name: "Light Hail", valence: 0.04},{name: "Heavy Hail", valence: 0.05},{name:"Heavy Thunderstorms and Ice Pellets",valence: 0.06},
 {name: "Heavy Thunderstorms and Rain", valence: 0.08},{name: "Light Thunderstorms and Rain", valence: 0.09},{name: "Heavy Thunderstorm", valence: 0.1},{name: "Light Thunderstorms with Small Hail", valence: 0.11},{name: "Heavy Thunderstorms with Small Hail", valence: 0.12},{name: "Light Thunderstorms and Snow", valence: 0.13},
@@ -29,6 +30,7 @@ var observableWeather= [{name:"Funnel Cloud",valence: 0.01}, {name:"Heavy Thunde
 {name: "Light Fog", valence: 0.585},{name: "Shallow Fog", valence: 0.60},{name: "Patches of Fog", valence: 0.63},{name: "Light Fog Patches", valence: 0.645},{name: "Light Mist", valence: 0.66},
 { name:"Overcast", valence: 0.67},{ name:"Light Snow", valence: 0.73},{ name:"Mostly Cloudy", valence: 0.79},{ name:"Partly Cloudy", valence: 0.85},{ name:"Scattered Clouds", valence: 0.91},{ name:"Clear", valence: 0.99}
 ];
+
 // playlist generation data
 var seed_valence;
 var seed_artists=[];
@@ -43,7 +45,7 @@ var playlist_url;
 var randomNumber;
 
 (function() {
-
+  $('#player').hide();
   /**
    * Obtains parameters from the hash of the URL
    * @return Object
@@ -366,6 +368,8 @@ var randomNumber;
                     var embedString = "https://embed.spotify.com/?uri=" + playlist_url;
                     console.log(embedString);
                     document.getElementById('spotifyPlayer').src = embedString;
+                    $('#makePlaylistDiv').hide();
+                    $('#player').show();
                   },
                   error:
                   function(error){
