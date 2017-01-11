@@ -88,9 +88,13 @@ var randomNumber;
         $('#loggedin').hide();
     }
   }
-
+  //  Button clicks
     document.getElementById("obtain-playlist").addEventListener('click', function(){
     obtainCityState();
+    });
+    $("#new-playlist").on('click', function(){
+      $('#player').hide();
+      $("#makePlaylistDiv").show();
     });
 
     var obtainCityState = function(){

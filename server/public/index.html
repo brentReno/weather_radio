@@ -4,7 +4,7 @@
     <title>Example of the Authorization Code flow with Spotify</title>
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="/styles/styles.css">
-
+    <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
 
   <body>
@@ -35,6 +35,11 @@
         <div id="player">
           <p id="playerBackground">
             <iframe id="spotifyPlayer" src=""  frameborder="0" allowtransparency="true"></iframe>
+          <div class="row">
+            <div class="col-xs-4 col-xs-offset-4">
+              <button class="btn btn-default button center" id="new-playlist"> Get New Playlist </button>
+            </div>
+          </div>
           </p>
         </div>
       </div>
