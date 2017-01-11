@@ -164,10 +164,19 @@ var randomNumber;
           console.log("back with", weather);
           // get the current temp
           var current_temp = weather.current_observation.feelslike_f;
+          if(current_temp == "undefined"){
+            return;
+          }
           //get the current weater conditions
           var current_conditions = weather.current_observation.weather;
+            if(current_conditions == "undefined"){
+              return;
+            }
           // get the current wind speed
           var current_wind= weather.current_observation.wind_mph;
+            if(current_wind == "undefined"){
+              return;
+            }
           // push current data into weather_data
           weather_data.current_temp = Math.floor(current_temp);
           weather_data.current_conditions= current_conditions;
