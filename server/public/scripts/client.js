@@ -102,10 +102,11 @@ var randomNumber;
       $.ajax({
         type: "GET",
         dataType: "json",
-        url: 'http://maps.googleapis.com/maps/api/geocode/json?address='+user_zip,
+        url: 'http://ZiptasticAPI.com/'+user_zip,
         success: function(location){
-          user_city = location.results[0].address_components[1].short_name;
-          user_state = location.results[0].address_components[3].short_name;
+          console.log(location);
+          user_city = location.city;
+          user_state = location.state;
           console.log(user_city);
           console.log(user_state);
           obtainWeather();
