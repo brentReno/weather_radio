@@ -99,6 +99,9 @@ var randomNumber;
 
     var obtainCityState = function(){
       user_zip=document.getElementById('zipcode').value;
+      if (!user_zip){
+        alert("Please enter a zipcode to proceed");
+      }
       $.ajax({
         type: "GET",
         dataType: "json",
