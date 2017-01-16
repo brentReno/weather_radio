@@ -19,6 +19,7 @@
     "grunt-contrib-uglify": "^2.0.0",
     "grunt-contrib-watch": "^1.0.0",
     "querystring": "^0.2.0",
+    "raven-js": "^3.9.1",
     "request": "^2.79.0"
   }
 }

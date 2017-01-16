@@ -415,3 +415,9 @@ var randomNumber;
       randomNumber =Math.floor(Math.random()*(max - min)+min);
     } ;
 })();
+
+// Raven for bug tracking with Sentry
+var Raven = require('raven-js') ;
+Raven
+    .config('https://b5ce00ca920843f58b5c04fa17eb36e6@sentry.io/129792')
+    .install();
