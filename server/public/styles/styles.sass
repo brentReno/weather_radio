@@ -1,8 +1,9 @@
 $icon-size: 48px
 $header-size: 64px
 $button-text: 24px
-$inconsolata: 'Inconsolata', monospace
-$montserrat: 'Montserrat', sans-serif
+$work-sans: 'Work Sans', sans-serif
+$thin: 100
+$regular: 400
 $light-grey: #F7F7FF
 $dark-grey: #070600
 $blue: #058ED9
@@ -10,7 +11,7 @@ $blue-hover: #04689E
 $peach: #ff9068
 $pink: #fd746c
 $login-radius: 20px
-@import url('https://fonts.googleapis.com/css?family=Inconsolata|Montserrat')
+@import url('https://fonts.googleapis.com/css?family=Work+Sans:100,400')
 
 html
   height: 100%
@@ -20,7 +21,8 @@ body
 
 #login-header
   font-size: $header-size
-  font-family: $inconsolata
+  font-family: $work-sans
+  font-weight: $regular
   color: $dark-grey
   background-color: $light-grey
   width: 50%
@@ -34,8 +36,9 @@ body
   border-right: 2px solid $dark-grey
 
 .button
-  font-family: $montserrat
+  font-family: $work-sans
   font-size: $button-text
+  font-weight: $thin
   background-color: $blue
   border: 1px solid $blue
   color: $light-grey
@@ -46,6 +49,7 @@ body
 .button:hover
   background-color: $blue-hover
   border: 1px solid $blue-hover
+  color: $light-grey
 
 #icon
   font-size: $icon-size
@@ -124,7 +128,7 @@ body
   margin-bottom: 10px
   height: 45px
   font-size: 24px
-  font-family: $inconsolata
+  font-family: $work-sans
 
 .generate
   width: 60%
