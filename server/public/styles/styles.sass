@@ -6,6 +6,7 @@ $montserrat: 'Montserrat', sans-serif
 $light-grey: #F7F7FF
 $dark-grey: #070600
 $blue: #058ED9
+$blue-hover: #04689E
 $peach: #ff9068
 $pink: #fd746c
 $login-radius: 20px
@@ -40,6 +41,11 @@ body
   color: $light-grey
   padding-top: 0.75em
   padding-bottom: 0.75em
+  transition: all 0.3s ease 0s
+
+.button:hover
+  background-color: $blue-hover
+  border: 1px solid $blue-hover
 
 #icon
   font-size: $icon-size
@@ -47,7 +53,7 @@ body
   margin-left: 0.20em
 
 #login
-  margin-top: 15em
+  margin-top: 12em
   padding-bottom: 3em
 
 #login, #loggedin
@@ -61,7 +67,7 @@ body
 
 .center
   display: block
-  margin-left:auto
+  margin-left: auto
   margin-right: auto
   width: 100%
 

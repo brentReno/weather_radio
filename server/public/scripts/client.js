@@ -45,6 +45,7 @@ var playlist_url;
 var randomNumber;
 
 (function() {
+  // hide the embed player on load
   $('#player').hide();
   /**
    * Obtains parameters from the hash of the URL
@@ -76,7 +77,6 @@ var randomNumber;
             'Authorization': 'Bearer ' + access_token
           },
           success: function(response) {
-            // userProfilePlaceholder.innerHTML = userProfileTemplate(response);
             user_id =  response.id;
             $('#login').hide();
             $('#loggedin').show();

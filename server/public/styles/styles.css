@@ -28,7 +28,12 @@ body {
   border: 1px solid #058ED9;
   color: #F7F7FF;
   padding-top: 0.75em;
-  padding-bottom: 0.75em; }
+  padding-bottom: 0.75em;
+  transition: all 0.3s ease 0s; }
+
+.button:hover {
+  background-color: #04689E;
+  border: 1px solid #04689E; }
 
 #icon {
   font-size: 48px;
@@ -36,7 +41,7 @@ body {
   margin-left: 0.2em; }
 
 #login {
-  margin-top: 15em;
+  margin-top: 12em;
   padding-bottom: 3em; }
 
 #login, #loggedin {
@@ -50,6 +55,7 @@ body {
 
 .center {
   display: block;
+  margin-left: auto;
   margin-right: auto;
   width: 100%; }
 
