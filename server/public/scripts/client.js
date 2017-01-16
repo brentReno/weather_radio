@@ -122,7 +122,7 @@ var randomNumber;
       $.ajax({
         type: "GET",
         dataType: "json",
-        url: 'http://ZiptasticAPI.com/'+user_zip,
+        url: 'https://ZiptasticAPI.com/'+user_zip,
         success: function(location){
           console.log(location);
           user_city = location.city;
