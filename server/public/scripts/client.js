@@ -68,7 +68,19 @@ var randomNumber;
       error = params.error;
 
   if (error) {
-    swal('There was an error during the authentication');
+    swal({
+      title:'There was an error during the authentication',
+      type: 'warning',
+      showCancelButton: false,
+      closeOnConfirm: true
+    },
+      function(){
+        //return to landing view if error
+        window.location.href = "http://localhost:3080";
+    }
+  );
+
+
   } else {
       if (access_token) {
         $.ajax({
@@ -414,10 +426,5 @@ var randomNumber;
     var randomNumberGen = function(min, max){
       randomNumber =Math.floor(Math.random()*(max - min)+min);
     } ;
+    Raven.config('https://b5ce00ca920843f58b5c04fa17eb36e6@sentry.io/129792').install();
 })();
-
-// Raven for bug tracking with Sentry
-var Raven = require('raven-js') ;
-Raven
-    .config('https://b5ce00ca920843f58b5c04fa17eb36e6@sentry.io/129792')
-    .install();
