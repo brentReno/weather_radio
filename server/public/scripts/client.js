@@ -68,7 +68,7 @@ var randomNumber;
       error = params.error;
 
   if (error) {
-    alert('There was an error during the authentication');
+    swal('There was an error during the authentication');
   } else {
       if (access_token) {
         $.ajax({
