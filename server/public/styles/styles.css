@@ -13,6 +13,7 @@ body {
   color: #070600;
   background-color: #F7F7FF;
   width: 50%;
+  padding-top: 0.25em;
   margin-left: auto;
   margin-right: auto;
   padding-bottom: 0.25em;
@@ -97,7 +98,7 @@ body {
   padding-top: 1em;
   padding-bottom: 1em;
   border-radius: 20px;
-  margin-top: 5em;
+  margin-top: 12em;
   border: 2px solid #070600; }
 
 .zip-in {
@@ -130,7 +131,7 @@ body {
   width: 320px;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 1em;
+  margin-top: 8em;
   border-radius: 20px;
   border: 2px solid #070600; }
 
