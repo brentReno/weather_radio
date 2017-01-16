@@ -76,7 +76,7 @@ var randomNumber;
     },
       function(){
         //return to landing view if error
-        window.location.href = "http://localhost:3080";
+        window.location.href = "https://weather-radio.herokuapp.com/";
     }
   );
 
