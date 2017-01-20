@@ -170,7 +170,7 @@ var randomNumber;
 
       $.ajax({
         type: "GET",
-        url: "https://api.wunderground.com/api/b67101dd22166f78/conditions/q/"+ user_state+"/"+user_city+".json",
+        url: "https://api.wunderground.com/api/"+ process.env.WU_KEY +"/conditions/q/"+ user_state+"/"+user_city+".json",
         dataType: "json",
         success: function(weather){
           console.log("back with", weather);
