@@ -176,4 +176,8 @@ body {
   margin-left: auto;
   margin-right: auto; }
 
+@media screen and (max-width: 375px) {
+  .get-new {
+    margin-left: -1em; } }
+
 /*# sourceMappingURL=styles.css.map */
