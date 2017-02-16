@@ -128,7 +128,9 @@ body
   border-radius: $login-radius
   margin-top: 12em
   border: 2px solid $dark-grey
-
+  @media screen and (max-width: $break-small)
+    width: 90%
+    margin-top: 16em
 
 .zip-in
   display: block
@@ -146,6 +148,8 @@ body
   height: 45px
   font-size: 24px
   font-family: $work-sans
+  @media screen and (max-width: $break-small)
+    font-size: 18px
 
 .generate
   width: 60%

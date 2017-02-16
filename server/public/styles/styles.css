@@ -122,6 +122,10 @@ body {
   border-radius: 20px;
   margin-top: 12em;
   border: 2px solid #070600; }
+  @media screen and (max-width: 375px) {
+    .zipcode {
+      width: 90%;
+      margin-top: 16em; } }
 
 .zip-in {
   display: block;
@@ -139,6 +143,9 @@ body {
   height: 45px;
   font-size: 24px;
   font-family: "Work Sans", sans-serif; }
+  @media screen and (max-width: 375px) {
+    .zip-in {
+      font-size: 18px; } }
 
 .generate {
   width: 60%;
