@@ -22,6 +22,10 @@ body {
   border-top: 2px solid #070600;
   border-left: 2px solid #070600;
   border-right: 2px solid #070600; }
+  @media screen and (max-width: 375px) {
+    #login-header {
+      font-size: 36px;
+      width: 75%; } }
 
 .button {
   font-family: "Work Sans", sans-serif;
@@ -32,6 +36,9 @@ body {
   color: #F7F7FF;
   transition: all 0.3s ease 0s;
   height: 2em; }
+  @media screen and (max-width: 375px) {
+    .button {
+      font-size: 15px; } }
 
 .button:hover {
   background-color: #04689E;
@@ -42,6 +49,9 @@ body {
   font-size: 48px;
   color: #070600;
   margin-left: 0.2em; }
+  @media screen and (max-width: 375px) {
+    #icon {
+      margin-left: -0.4em; } }
 
 #login {
   margin-top: 12em;
@@ -65,9 +75,15 @@ body {
 #cloud-icon {
   margin-top: -1.5em;
   margin-left: -4em; }
+  @media screen and (max-width: 375px) {
+    #cloud-icon {
+      margin-left: -6em; } }
 
 #music-icon {
   margin-left: 3em; }
+  @media screen and (max-width: 375px) {
+    #music-icon {
+      margin-left: 1em; } }
 
 #logo-icons {
   margin-top: -1em;
@@ -77,6 +93,9 @@ body {
   border-left: 2px solid #070600;
   border-right: 2px solid #070600;
   width: 50%; }
+  @media screen and (max-width: 375px) {
+    #logo-icons {
+      width: 75%; } }
 
 #login-button-background {
   background-color: #F7F7FF;
@@ -89,6 +108,9 @@ body {
   border-bottom: 2px solid #070600;
   border-left: 2px solid #070600;
   border-right: 2px solid #070600; }
+  @media screen and (max-width: 375px) {
+    #login-button-background {
+      width: 75%; } }
 
 .zipcode {
   background-color: #F7F7FF;
